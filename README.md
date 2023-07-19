@@ -1,0 +1,1 @@
+Etch-a-sketch project. Practicing my JavaScript skills.
