@@ -1,4 +1,6 @@
-* {
+
+ 
+ * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -44,3 +46,27 @@ button:hover {
   justify-content: center;
 }
 
+.container {
+  display: flex;
+  justify-content: center;
+  padding: 48px;
+}
+
+.sketch {
+  box-sizing: content-box;
+  display: flex;
+  flex-flow: row wrap;
+  height: 480px;
+  width: 480px;
+  border: black solid 2px;
+
+}
+ 
+.single-cell,
+.single-cell-new {
+  box-sizing: border-box;
+  border: #5F0F40 solid 1px;
+  flex-grow: 1;
+  flex-basis: 30px;
+  background-color: beige;
+}

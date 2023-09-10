@@ -5,6 +5,7 @@ const userInputValue = document.querySelector(".btn-size");
 const resetButton = document.querySelector(".btn-reset");
 
 
+
 function createGrid(rows, columns) {
 
 
@@ -23,38 +24,90 @@ function createGrid(rows, columns) {
 createGrid(16, 16);
 
 
+
+const allCells = document.querySelectorAll(".single-cell");
+
+/*
 function resetGrid() {
   resetButton.addEventListener("click", function() {
-    console.log("clicked");
-    const singleCell = document.querySelectorAll(".single-cell");
-    console.log(singleCell);
-    singleCell.forEach(
-      function(node, index) {
+    allCells.forEach(
+      function(node) {
+      node.style.backgroundColor = "beige";
+    }
+    );
+    allNewCells.forEach(
+      function(node) {
+      node.style.backgroundColor = "beige";
+    }
+    );
+
+
+})
+}; 
+
+resetGrid(); */
+
+
+
+
+
+
+function customGridSize(rows, columns) {
+  userInputValue.addEventListener("click", function() {
+  let userChoice = prompt("Enter a value", "0")
+    
+  /* remove all divs created onload with createGrid(16, 16) */
+  while (sketchDiv.firstChild) {
+    sketchDiv.removeChild(sketchDiv.firstChild);
+  }
+
+
+  let customChoice = Math.floor(userChoice);
+  rows = customChoice;
+  columns = customChoice;
+
+  /* create new custom divs */
+  for (i = 0; i < rows * columns; i++) {
+
+  let singleCellNew = document.createElement("div");
+  singleCellNew.classList.add("single-cell-new");
+  
+  sketchDiv.appendChild(singleCellNew);
+
+  singleCellNew.addEventListener("mouseenter", (event) => event.target.style.backgroundColor = "black");
+};
+
+  let allNewCells = document.querySelectorAll(".single-cell-new")
+  console.log(allNewCells);
+
+  let newFlexBasisValue = 480 / userChoice;
+  newFlexBasisValue = newFlexBasisValue.toFixed(2) + "px";
+    console.log(newFlexBasisValue);
+
+  allNewCells.forEach(
+  function(node) {
+    node.style.flexBasis = newFlexBasisValue;
+  });
+
+  function resetNewGrid() {
+    resetButton.addEventListener("click", function() {
+    allNewCells.forEach(
+      function(node) {
       node.style.backgroundColor = "beige";
     }
     );
 })
 };
 
-resetGrid();
-
-
-
-function changeSize() {
-  let userChoice = prompt("Enter a value", "0")
-console.log(userChoice);
+resetNewGrid();
 }
+)
+};
+
+customGridSize();
 
 
 
-function createGridOnSize() {
-
-  userInputValue.addEventListener("click", changeSize);
-let newNumberOfCells = 
-    singleCell.style.flexBasis = newNumberOfCells
-  }
-
-/* createGridOnSize(); */
 
 
 
