@@ -20,7 +20,6 @@ function createGrid(rows, columns) {
 }
 }
 
-
 createGrid(16, 16);
 
 
@@ -30,12 +29,11 @@ const allCells = document.querySelectorAll(".single-cell");
 
 function resetGrid() {
   resetButton.addEventListener("click", function() {
-    allCells.forEach(
-      function(node) {
-      node.style.backgroundColor = "beige";
-    }
-    );
-})
+    while (sketchDiv.firstChild) {
+      sketchDiv.removeChild(sketchDiv.firstChild)
+    };
+  createGrid(16,16);
+  })
 }; 
 
 resetGrid();
@@ -111,8 +109,10 @@ function colorChoice() {
 
   allCells.forEach(
     function(node) {
-    node.addEventListener("mouseenter", (event) => event.target.style.backgroundColor = createRandomRgbColor())})
+    node.addEventListener("mouseenter", (event) => event.target.style.backgroundColor = createRandomRgbColor());
+  })
     
+  
 };
 
 function createRandomRgbColor() {
