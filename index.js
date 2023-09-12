@@ -27,7 +27,7 @@ createGrid(16, 16);
 
 const allCells = document.querySelectorAll(".single-cell");
 
-/*
+
 function resetGrid() {
   resetButton.addEventListener("click", function() {
     allCells.forEach(
@@ -35,17 +35,10 @@ function resetGrid() {
       node.style.backgroundColor = "beige";
     }
     );
-    allNewCells.forEach(
-      function(node) {
-      node.style.backgroundColor = "beige";
-    }
-    );
-
-
 })
 }; 
 
-resetGrid(); */
+resetGrid();
 
 
 
@@ -54,31 +47,32 @@ resetGrid(); */
 
 function customGridSize(rows, columns) {
   userInputValue.addEventListener("click", function() {
-  let userChoice = prompt("Enter a value", "0")
-    
-  /* remove all divs created onload with createGrid(16, 16) */
+  const userChoice = prompt("Enter a value", "0");
+
+  /* remove all divs first */
   while (sketchDiv.firstChild) {
     sketchDiv.removeChild(sketchDiv.firstChild);
   }
 
+  /*const customChoice = Math.floor(userChoice); */
+  const customChoice = Number(userChoice);
+  console.log(customChoice);
 
-  let customChoice = Math.floor(userChoice);
+  
+  if (customChoice < 100) {
+    true;
+  } else {
+    alert("Please, enter an integer number smaller than 100.");
+    return;
+  };
+
+
   rows = customChoice;
   columns = customChoice;
 
-  /* create new custom divs */
-  for (i = 0; i < rows * columns; i++) {
+  createGrid(rows, columns);
 
-  let singleCellNew = document.createElement("div");
-  singleCellNew.classList.add("single-cell-new");
-  
-  sketchDiv.appendChild(singleCellNew);
-
-  singleCellNew.addEventListener("mouseenter", (event) => event.target.style.backgroundColor = "black");
-};
-
-  let allNewCells = document.querySelectorAll(".single-cell-new")
-  console.log(allNewCells);
+  const allNewCells = document.querySelectorAll(".single-cell");
 
   let newFlexBasisValue = 480 / userChoice;
   newFlexBasisValue = newFlexBasisValue.toFixed(2) + "px";
@@ -100,6 +94,7 @@ function customGridSize(rows, columns) {
 };
 
 resetNewGrid();
+
 }
 )
 };
@@ -108,38 +103,22 @@ customGridSize();
 
 
 
-
-
-
-
-
+/*add eventListener to a button*/
+buttonColor.addEventListener("click", colorChoice);
 
 function colorChoice() {
-  console.log("clicked")
-}
+  const allCells = document.querySelectorAll(".single-cell")
 
-/*add eventListener to a button*/
-buttonColor.addEventListener("click", colorChoice)
-
-
-/* CREATE ONE DIV AND APPEND IT TO HTML INSIDE SKETCH DIV
-document.body.onload = addElement;
-
-
-function addElement() {
-  const newDiv = document.createElement("div");
-  const content = document.createTextNode("hi");
-  newDiv.appendChild(content);
-
-  const sketchDiv = document.getElementById("sketch");
-
-  sketchDiv.appendChild(newDiv);
+  allCells.forEach(
+    function(node) {
+    node.addEventListener("mouseenter", (event) => event.target.style.backgroundColor = createRandomRgbColor())})
+    
 };
-*/
 
-/*
-document.body.onload = createGrid;
-*/
-
-
-
+function createRandomRgbColor() {
+  let r = Math.floor(Math.random() * 256);
+  let g = Math.floor(Math.random() * 256);
+  let b = Math.floor(Math.random() * 256);
+  return "rgb(" + r + "," + g + "," + b + ")"; 
+};
+console.log(createRandomRgbColor());
