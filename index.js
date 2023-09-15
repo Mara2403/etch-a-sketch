@@ -5,9 +5,7 @@ const userInputValue = document.querySelector(".btn-size");
 const resetButton = document.querySelector(".btn-reset");
 
 
-
 function createGrid(rows, columns) {
-
 
   for (i = 0; i < rows * columns; i++) {
 
@@ -18,7 +16,7 @@ function createGrid(rows, columns) {
 
   singleCell.addEventListener("mouseenter", (event) => event.target.style.backgroundColor = "black");
 }
-}
+};
 
 createGrid(16, 16);
 
@@ -37,16 +35,45 @@ function resetGrid() {
 }; 
 
 resetGrid();
+/*
+const modal = document.querySelector("#modal");
+  const closeModal= document.querySelector("#btn-close");
+  
+  userInputValue.addEventListener("click", () => {
+    modal.showModal();
+  });
+  
+  closeModal.addEventListener("click", () => {
+    modal.close();
+  }); */
+  const modal = document.querySelector(".modal");
+  const overlay = document.querySelector(".overlay");
+  const openModalBtn = document.querySelector(".btn-size");
+  const closeModalBtn = document.querySelector(".btn-close");
 
+  const openModal = function () {
+    modal.classList.remove("hidden");
+    overlay.classList.remove("hidden");
+  };
+  const closeModal = function () {
+    modal.classList.add("hidden");
+    overlay.classList.add("hidden");
+  };
 
-
-
-
+  userInputValue.addEventListener("click", openModal);  closeModalBtn.addEventListener("click", closeModal);
 
 function customGridSize(rows, columns) {
+  /*PROMPT - it works fine, but not pretty */
   userInputValue.addEventListener("click", function() {
-  const userChoice = prompt("Enter a value", "0");
-
+  const userChoice = prompt("Enter a value", "0"); 
+/*
+ let form = document.querySelector(".form");
+ form.addEventListener("submit", function (e) {
+  e.preventDefault()
+  let formdata = new FormData(this);
+  let userChoice = formdata.get("my-input");
+  console.log(userChoice);
+*/
   /* remove all divs first */
   while (sketchDiv.firstChild) {
     sketchDiv.removeChild(sketchDiv.firstChild);
@@ -93,9 +120,8 @@ function customGridSize(rows, columns) {
 
 resetNewGrid();
 
-}
-)
-};
+})}
+ /* )};*/
 
 customGridSize();
 
@@ -104,15 +130,15 @@ customGridSize();
 /*add eventListener to a button*/
 buttonColor.addEventListener("click", colorChoice);
 
+
 function colorChoice() {
   const allCells = document.querySelectorAll(".single-cell")
 
   allCells.forEach(
     function(node) {
     node.addEventListener("mouseenter", (event) => event.target.style.backgroundColor = createRandomRgbColor());
-  })
     
-  
+  })
 };
 
 function createRandomRgbColor() {
@@ -122,3 +148,4 @@ function createRandomRgbColor() {
   return "rgb(" + r + "," + g + "," + b + ")"; 
 };
 console.log(createRandomRgbColor());
+
