@@ -36,6 +36,8 @@ function resetGrid() {
 
 resetGrid();
 
+
+
   const modal = document.querySelector(".modal");
   const overlay = document.querySelector(".overlay");
   const openModalBtn = document.querySelector(".btn-size");
@@ -50,29 +52,29 @@ resetGrid();
     overlay.classList.add("hidden");
   };
 
-  userInputValue.addEventListener("click", openModal);  closeModalBtn.addEventListener("click", closeModal);
+  userInputValue.addEventListener("click", openModal);
+  closeModalBtn.addEventListener("click", closeModal);
   overlay.addEventListener("click", closeModal);
+
+ 
+  
+
+
 
 
 function customGridSize(rows, columns) {
-  /*PROMPT - it works fine, but not pretty */
   userInputValue.addEventListener("click", function() {
-  const userChoice = prompt("Enter a value", "0"); 
+  /*PROMPT - it works fine, but not pretty */
+  /* const userChoice = prompt("Enter a value", "0"); */
+
+const form = document.getElementById("myForm");
+form.addEventListener("submit", function(event) {
+ event.preventDefault();
+ 
+ let userChoice = document.querySelector("#user-input").value;
+ 
 
 
-
-
-
-
-
-/*
- let form = document.querySelector(".form");
- form.addEventListener("submit", function (e) {
-  e.preventDefault()
-  let formdata = new FormData(this);
-  let userChoice = formdata.get("my-input");
-  console.log(userChoice);
-*/
   /* remove all divs first */
   while (sketchDiv.firstChild) {
     sketchDiv.removeChild(sketchDiv.firstChild);
@@ -138,9 +140,9 @@ if (customChoice <100) {
 };
 
 resetNewGrid();
-
-})}
- /* )};*/
+})
+})};
+ 
 
 customGridSize();
 
