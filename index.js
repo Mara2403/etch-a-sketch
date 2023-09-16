@@ -35,17 +35,7 @@ function resetGrid() {
 }; 
 
 resetGrid();
-/*
-const modal = document.querySelector("#modal");
-  const closeModal= document.querySelector("#btn-close");
-  
-  userInputValue.addEventListener("click", () => {
-    modal.showModal();
-  });
-  
-  closeModal.addEventListener("click", () => {
-    modal.close();
-  }); */
+
   const modal = document.querySelector(".modal");
   const overlay = document.querySelector(".overlay");
   const openModalBtn = document.querySelector(".btn-size");
@@ -61,11 +51,20 @@ const modal = document.querySelector("#modal");
   };
 
   userInputValue.addEventListener("click", openModal);  closeModalBtn.addEventListener("click", closeModal);
+  overlay.addEventListener("click", closeModal);
+
 
 function customGridSize(rows, columns) {
   /*PROMPT - it works fine, but not pretty */
   userInputValue.addEventListener("click", function() {
   const userChoice = prompt("Enter a value", "0"); 
+
+
+
+
+
+
+
 /*
  let form = document.querySelector(".form");
  form.addEventListener("submit", function (e) {
@@ -83,6 +82,8 @@ function customGridSize(rows, columns) {
   const customChoice = Number(userChoice);
   console.log(customChoice);
 
+
+  /* this works fine, tring modal box under
   
   if (customChoice < 100) {
     true;
@@ -90,7 +91,25 @@ function customGridSize(rows, columns) {
     alert("Please, enter an integer number smaller than 100.");
     return;
   };
+ */ 
+  const modal1 = document.querySelector(".modal1");
+  const openModal1 = function () {
+    modal1.classList.remove("hidden");
+    overlay.classList.remove("hidden");
+  };
 
+if (customChoice <100) {
+  true;
+} else {
+    openModal1();
+  };
+
+  const closeModal1 = function () {
+    modal1.classList.add("hidden");
+    overlay.classList.add("hidden");
+  };
+
+ overlay.addEventListener("click", closeModal1);
 
   rows = customChoice;
   columns = customChoice;
