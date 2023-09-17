@@ -15,6 +15,8 @@ function createGrid(rows, columns) {
   sketchDiv.appendChild(singleCell);
 
   singleCell.addEventListener("mouseenter", (event) => event.target.style.backgroundColor = "black");
+
+  singleCell.addEventListener("click", (event) => event.target.style.backgroundColor = "beige");
 }
 };
 
@@ -136,7 +138,7 @@ function colorChoice() {
   allCells.forEach(
     function(node) {
     node.addEventListener("mouseenter", (event) => event.target.style.backgroundColor = createRandomRgbColor());
-    
+    node.addEventListener("click", (event) => event.target.style.backgroundColor = "beige");
   })
 };
 
