@@ -1,5 +1,4 @@
 
- 
  * {
   box-sizing: border-box;
   margin: 0;
@@ -59,7 +58,6 @@ button:hover {
   height: 480px;
   width: 480px;
   border: black solid 2px;
-
 }
  
 .single-cell {
@@ -86,12 +84,6 @@ button:hover {
   background-color: #FB8B24;
   display: flex;
   flex-direction: column;
-  
-
-
-   & > * {
-    margin: 0 0 0.5rem 0;
-   }
 }
 
 .flex {
@@ -99,11 +91,7 @@ button:hover {
   justify-content: space-between;
   gap: 1em;
 }
-/*
-.modal::backdrop {
-  background: rgb(0 0 0 / 0.5);
-}
-*/
+
 #user-input,
 .submit-button {
   padding: 10px 20px;
@@ -120,7 +108,6 @@ button:hover {
   font-size: 16px;
   outline: none;
   max-width: 120px;
-
 }
 
 #user-input:hover,

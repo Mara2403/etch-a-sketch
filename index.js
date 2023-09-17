@@ -38,34 +38,29 @@ resetGrid();
 
 
 
-  const modal = document.querySelector(".modal");
-  const overlay = document.querySelector(".overlay");
-  const openModalBtn = document.querySelector(".btn-size");
-  const closeModalBtn = document.querySelector(".btn-close");
+const modal = document.querySelector(".modal");
+const overlay = document.querySelector(".overlay");
+const openModalBtn = document.querySelector(".btn-size");
+const closeModalBtn = document.querySelector(".btn-close");
 
-  const openModal = function () {
-    modal.classList.remove("hidden");
-    overlay.classList.remove("hidden");
-  };
-  const closeModal = function () {
-    modal.classList.add("hidden");
-    overlay.classList.add("hidden");
-  };
+const openModal = function () {
+  modal.classList.remove("hidden");
+  overlay.classList.remove("hidden");
+};
+const closeModal = function () {
+  modal.classList.add("hidden");
+  overlay.classList.add("hidden");
+};
 
-  userInputValue.addEventListener("click", openModal);
-  closeModalBtn.addEventListener("click", closeModal);
-  overlay.addEventListener("click", closeModal);
-
- 
-  
-
+userInputValue.addEventListener("click", openModal);
+closeModalBtn.addEventListener("click", closeModal);
+overlay.addEventListener("click", closeModal);
 
 
 
 function customGridSize(rows, columns) {
   userInputValue.addEventListener("click", function() {
-  /*PROMPT - it works fine, but not pretty */
-  /* const userChoice = prompt("Enter a value", "0"); */
+  
 
 const form = document.getElementById("myForm");
 form.addEventListener("submit", function(event) {
@@ -80,20 +75,10 @@ form.addEventListener("submit", function(event) {
     sketchDiv.removeChild(sketchDiv.firstChild);
   }
 
-  /*const customChoice = Math.floor(userChoice); */
   const customChoice = Number(userChoice);
   console.log(customChoice);
 
 
-  /* this works fine, tring modal box under
-  
-  if (customChoice < 100) {
-    true;
-  } else {
-    alert("Please, enter an integer number smaller than 100.");
-    return;
-  };
- */ 
   const modal1 = document.querySelector(".modal1");
   const openModal1 = function () {
     modal1.classList.remove("hidden");
@@ -147,8 +132,6 @@ resetNewGrid();
 customGridSize();
 
 
-
-/*add eventListener to a button*/
 buttonColor.addEventListener("click", colorChoice);
 
 
