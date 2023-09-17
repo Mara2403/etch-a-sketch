@@ -62,14 +62,12 @@ function customGridSize(rows, columns) {
   userInputValue.addEventListener("click", function() {
   
 
-const form = document.getElementById("myForm");
-form.addEventListener("submit", function(event) {
- event.preventDefault();
+  const form = document.getElementById("myForm");
+  form.addEventListener("submit", function(event) {
+  event.preventDefault();
  
- let userChoice = document.querySelector("#user-input").value;
+  let userChoice = document.querySelector("#user-input").value;
  
-
-
   /* remove all divs first */
   while (sketchDiv.firstChild) {
     sketchDiv.removeChild(sketchDiv.firstChild);
@@ -78,25 +76,24 @@ form.addEventListener("submit", function(event) {
   const customChoice = Number(userChoice);
   console.log(customChoice);
 
-
   const modal1 = document.querySelector(".modal1");
   const openModal1 = function () {
     modal1.classList.remove("hidden");
     overlay.classList.remove("hidden");
   };
 
-if (customChoice <100) {
-  true;
-} else {
-    openModal1();
-  };
+  if (customChoice <=100) {
+    true;
+  } else {
+      openModal1();
+    };
 
   const closeModal1 = function () {
     modal1.classList.add("hidden");
     overlay.classList.add("hidden");
   };
 
- overlay.addEventListener("click", closeModal1);
+  overlay.addEventListener("click", closeModal1);
 
   rows = customChoice;
   columns = customChoice;
@@ -119,21 +116,19 @@ if (customChoice <100) {
     allNewCells.forEach(
       function(node) {
       node.style.backgroundColor = "beige";
-    }
-    );
-})
+    });
+    })
+  };
+
+  resetNewGrid();
+  })
+  })
 };
-
-resetNewGrid();
-})
-})};
  
-
 customGridSize();
 
 
 buttonColor.addEventListener("click", colorChoice);
-
 
 function colorChoice() {
   const allCells = document.querySelectorAll(".single-cell")
